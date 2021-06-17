@@ -28,7 +28,9 @@ INSTALLED_APPS = [
     'users',
     'app',
     'social_django',
-     'crispy_forms',
+    'crispy_forms',
+    'cart',
+
 ]
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
 MIDDLEWARE = [
@@ -55,7 +57,8 @@ TEMPLATES = [
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
                 'social_django.context_processors.backends',
-                'social_django.context_processors.login_redirect'
+                'social_django.context_processors.login_redirect',
+                'cart.context_processor.cart_total_amount'
             ],
         },
     },
@@ -136,3 +139,4 @@ EMAIL_PORT = 1025
 SOCIAL_AUTH_GITHUB_KEY = 'CLIENTID AAPKI'
 SOCIAL_AUTH_GITHUB_SECRET = 'CLIENT SECRET AAPKA'
 
+CART_SESSION_ID = 'cart'

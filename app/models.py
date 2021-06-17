@@ -19,3 +19,16 @@ class PurchaseModel(models.Model):
 
     def __str__(self):
         return f"{self.name} {self.qty}"
+
+class Product(models.Model):
+    
+    name = models.CharField(max_length=255) 
+    image = models.ImageField(upload_to='products/') 
+    price = models.FloatField()
+
+    class Meta:
+        verbose_name = 'Product'
+        verbose_name_plural = 'Products'
+
+    def __str__(self):
+        return self.name

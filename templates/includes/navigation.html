@@ -1,3 +1,4 @@
+{% load cart_tag %}
 <nav class="navbar navbar-expand-lg navbar-dark shadow-lg" style="background-color: rgba(255, 255, 255, 0.144);">
     <a class="navbar-brand" href="{% url 'home' %}">Brand</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
@@ -20,6 +21,14 @@
             <li class="nav-item">
                 <a class="nav-link" href="#">Link 2</a>
             </li>
+            
+            {% if user.is_authenticated %}
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'cart_detail' %}">Total items in cart :: {{request.session.cart|length}}</a>
+            </li>
+            
+            {% endif %}
+                
         </ul>
         <div class="ml-md-auto">
             {% if user.is_authenticated  %}
