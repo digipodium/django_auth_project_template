@@ -17,8 +17,4 @@
 {% block content %}
 {{product}}
 <a class="btn btn-primary m-3" href="{% url 'cart_add' product.id %}">Add To Cart</a><br>
-
-<a class="btn btn-primary m-3" href="{% url 'item_increment' product.pk %}">Increament</a><br>
-<a class="btn btn-primary m-3" href="{% url 'item_decrement' product.pk %}">Decrement</a><br>
-
 {% endblock content %}

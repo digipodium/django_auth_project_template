@@ -1,5 +1,6 @@
+from os import name
 from django.urls import path
-from .views import index,purchase_item
+from .views import create_checkout_session, index,purchase_item
 from app import views
 
 urlpatterns = [
@@ -13,4 +14,9 @@ urlpatterns = [
     path('cart/cart-detail/',views.cart_detail,name='cart_detail'),
     path('product/detail/<int:pk>',views.show_single_product,name='product_detail'),
     path('product/all',views.show_products,name='product_all'),
+    path("config/",views.stripe_config, name='config'),
+    path('create-checkout-session/',views.create_checkout_session,name='create_checkout_session'),
+    path('success/',views.notify_success,name='success'),
+    path('cancelled/',views.notify_cancelled,name='cancelled'),
+
 ]
